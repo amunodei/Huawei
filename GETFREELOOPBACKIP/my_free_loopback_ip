@@ -1,0 +1,36 @@
+from netmiko import ConnectHandler
+from datetime import datetime
+
+current_datetime = datetime.now()
+
+with open( 'devices1.txt' ) as CE6881:
+  for IP in CE6881 :
+       device = {'device_type':'huawei',
+                 'host': IP,
+                'username':'huaweiatkins',
+                 'password':'Murambinda12#$'}
+
+       myssh=ConnectHandler(**device)
+       print('8'*100)
+       print(f'connecting to {IP} ')
+
+       commands_to_run = ['display ip interface brief ', 'display ip routing-table ', 'display ip routing-table all-routes']
+       #output1 = myssh.send_command("screen-length 0 temporary")
+       output0 = myssh.send_command("dis sysname ")
+       output2 = ""
+       for cmd in commands_to_run:
+        output2 += f"\n{'-' * 60}\n{cmd}\n{'-' * 60}\n"
+        output2 += myssh.send_command(cmd)
+        
+       print(output0)
+       print(output2)
+       
+       backupfilename = "CE6851-48S6Q-HI_VLANS-DATA.txt"
+       backupfile = open(backupfilename, "a")
+       backupfile.write("X"*200)
+       backupfile.write("\n")
+       backupfile.write(output0)
+       backupfile.write("\n")
+       backupfile.write(output2)
+       backupfile.write("\n")
+       backupfile.close()
