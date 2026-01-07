@@ -1,8 +1,8 @@
 from netmiko import ConnectHandler
 import time
 
-with open( 'devices1.txt' ) as CE6881:
-  for IP in CE6881 :
+with open( 'devices.txt' ) as network_devices:
+  for IP in network_devices :
        device = {'device_type':'huawei',
                  'host': IP,
                 'username':'huaweiatkins',
@@ -11,23 +11,36 @@ with open( 'devices1.txt' ) as CE6881:
        myssh=ConnectHandler(**device)
        print('8'*200)
        print(f'connecting to {IP} ')
-       #print()
-       #commands_to_run1 = ['disp sysname','dis lldp nei br']
-       commands_to_run = ('display ip routing-table all-routes')
-       output0 = myssh.send_command("dis sysname ")
-       output1 = myssh.send_command("disp ip int br ")
-       
-       output2 = (myssh.send_config_set(commands_to_run))
-       time.sleep(0)
-       print(output0)
-       print(output2)
-       print(output1)
-       backupfilename = "CE6851-48S6Q-HI_VLANS-DATA.txt"
+       backupfilename = "Looback_ips_inuse.txt"
        backupfile = open(backupfilename, "a")
+       myssh.send_command("screen-length 0 temporary")
+       device_name = myssh.send_command("disp sysname")
+       print(device_name)
+       version_output = myssh.send_command("display version | include VRP")[1:4]
+       print(version_output)
+       output1 = myssh.send_command("disp ip int br")
        backupfile.write("X"*200)
        backupfile.write("\n")
-       backupfile.write(output0)
-       backupfile.write("\n")
        backupfile.write(output1)
-       backupfile.write("\n")
-       backupfile.close()
+       print(output1)
+       if version_output == "026" :
+        output3 = myssh.send_command_timing("display ip routing-table | i 10.1.24.")
+        print(output3)
+        backupfile.write("X"*200)
+        backupfile.write("\n")
+        backupfile.write(output3)
+       elif version_output == "nfo" :
+        output4 = myssh.send_command_timing("display ip routing-table all-routes")
+        print(output4)
+        backupfile.write("X"*200)
+        backupfile.write("\n")
+        backupfile.write(output4)
+       else:
+        print("No matching VRP version found.") 
+
+
+        #backupfile.write("\n")
+        #backupfile.write(output3)
+        #backupfile.write("\n")
+        #backupfile.write(output4)
+        backupfile.close()
