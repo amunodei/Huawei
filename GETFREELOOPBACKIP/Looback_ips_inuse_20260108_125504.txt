@@ -1,0 +1,230 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+2026-01-08 12:55:15.514 +02:00
+*down: administratively down
+^down: standby
+(l): loopback
+(s): spoofing
+(d): Dampening Suppressed
+(E): E-Trunk down
+The number of interface that is UP in Physical is 61
+The number of interface that is DOWN in Physical is 37
+The number of interface that is UP in Protocol is 57
+The number of interface that is DOWN in Protocol is 41
+
+Interface                         IP Address/Mask      Physical   Protocol  
+GigabitEthernet0/0/0              192.168.0.1/24       down       down      
+GigabitEthernet1/0/0              unassigned           *down      down      
+GigabitEthernet1/0/1              unassigned           *down      down      
+GigabitEthernet1/0/2              unassigned           *down      down      
+GigabitEthernet1/0/3              unassigned           *down      down      
+GigabitEthernet1/0/4              192.168.200.1/30     up         up        
+GigabitEthernet1/0/5              unassigned           *down      down      
+GigabitEthernet1/0/6              unassigned           *down      down      
+GigabitEthernet1/0/7              unassigned           *down      down      
+GigabitEthernet1/0/9              unassigned           up         down      
+GigabitEthernet1/0/9.10           10.0.6.62/27         up         up        
+GigabitEthernet1/0/9.50           10.52.101.13/28      up         up        
+GigabitEthernet1/0/9.61           10.195.2.17/29       up         up        
+GigabitEthernet1/0/9.89           196.2.126.46/27      up         up        
+GigabitEthernet1/0/9.586          10.195.16.81/29      up         up        
+GigabitEthernet1/0/9.1000         41.73.34.49/30       *down      down      
+GigabitEthernet1/0/9.1001         10.120.16.134/30     *down      down      
+GigabitEthernet1/0/9.1005         172.20.105.5/29      *down      down      
+GigabitEthernet1/0/9.2337         172.23.37.97/29      *down      down      
+GigabitEthernet1/0/9.2338         172.23.38.97/29      *down      down      
+GigabitEthernet1/0/10             unassigned           *down      down      
+GigabitEthernet1/0/11             unassigned           up         down      
+GigabitEthernet1/0/11.50          10.0.3.59/29         up         up        
+GigabitEthernet1/0/11.60          10.195.17.4/24       up         up        
+GigabitEthernet2/0/0              unassigned           *down      down      
+GigabitEthernet2/0/1              unassigned           *down      down      
+GigabitEthernet2/0/2              unassigned           *down      down      
+GigabitEthernet2/0/3              unassigned           *down      down      
+GigabitEthernet2/0/4              unassigned           *down      down      
+GigabitEthernet2/0/5              unassigned           *down      down      
+GigabitEthernet2/0/6              unassigned           *down      down      
+GigabitEthernet2/0/7              unassigned           *down      down      
+GigabitEthernet2/0/8(10G)         41.73.34.85/30       up         up        
+GigabitEthernet2/0/9(10G)         unassigned           up         down      
+GigabitEthernet2/0/9.1            10.120.17.27/29      up         up        
+GigabitEthernet2/0/9.2            10.120.17.43/29      up         up        
+GigabitEthernet2/0/9.218          10.193.16.43/29      up         up        
+GigabitEthernet2/0/9.220          10.120.16.57/29      up         up        
+GigabitEthernet2/0/9.531          10.51.11.2/24        up         up        
+GigabitEthernet2/0/9.550          10.193.64.252/24     up         up        
+GigabitEthernet2/0/9.578          10.193.5.252/24      up         up        
+GigabitEthernet2/0/9.602          10.120.17.81/28      up         up        
+GigabitEthernet2/0/9.1003         10.193.17.97/29      up         up        
+GigabitEthernet2/0/9.1006         10.193.17.105/29     up         up        
+GigabitEthernet2/0/9.1008         10.193.17.113/29     up         up        
+GigabitEthernet2/0/9.1009         10.193.17.121/29     up         up        
+GigabitEthernet2/0/9.1899         41.73.59.2/28        up         up        
+GigabitEthernet2/0/9.1992         10.120.17.51/29      *down      down      
+GigabitEthernet2/0/9.1995         10.7.4.61/27         *down      down      
+GigabitEthernet2/0/9.2892         10.10.0.35/27        up         up        
+GigabitEthernet3/0/0              unassigned           *down      down      
+GigabitEthernet3/0/1              unassigned           *down      down      
+GigabitEthernet3/0/2              unassigned           *down      down      
+GigabitEthernet3/0/3              unassigned           *down      down      
+GigabitEthernet3/0/4              unassigned           *down      down      
+GigabitEthernet3/0/5              unassigned           *down      down      
+GigabitEthernet3/0/6              unassigned           *down      down      
+GigabitEthernet3/0/7              unassigned           *down      down      
+GigabitEthernet3/0/8(10G)         unassigned           up         down      
+GigabitEthernet3/0/8.100          10.120.17.10/29      up         up        
+GigabitEthernet3/0/8.200          10.120.16.26/30      up         up        
+GigabitEthernet3/0/8.300          41.73.34.58/31       *down      down      
+GigabitEthernet3/0/8.1300         10.120.16.157/30     up         up        
+GigabitEthernet3/0/8.1400         10.120.16.145/30     up         up        
+GigabitEthernet3/0/8.1800         10.120.17.1/30       up         up        
+GigabitEthernet3/0/8.1801         10.193.20.49/30      up         up        
+GigabitEthernet3/0/8.2003         10.120.16.38/30      *down      down      
+GigabitEthernet3/0/8.3661         10.120.16.10/30      up         up        
+GigabitEthernet3/0/8.4007         10.120.16.22/30      up         up        
+GigabitEthernet3/0/8.4008         10.193.16.33/30      up         up        
+GigabitEthernet3/0/8.4009         10.120.16.161/30     up         up        
+GigabitEthernet3/0/8.4013         10.120.17.18/29      up         up        
+GigabitEthernet3/0/9(10G)         unassigned           *down      down      
+LoopBack0                         unassigned           up         up(s)     
+LoopBack1                         10.1.24.209/32       up         up(s)     
+LoopBack2                         10.3.0.14/32         up         up(s)     
+LoopBack3                         unassigned           up         up(s)     
+LoopBack4                         41.73.58.2/32        up         up(s)     
+LoopBack5                         41.73.34.2/32        up         up(s)     
+LoopBack6                         unassigned           up         up(s)     
+LoopBack30                        10.0.3.13/32         up         up(s)     
+LoopBack31                        10.0.3.14/32         up         up(s)     
+LoopBack32                        41.73.34.53/32       up         up(s)     
+LoopBack100                       unassigned           up         up(s)     
+LoopBack1000                      10.0.2.10/32         up         up(s)     
+LoopBack1002                      unassigned           up         up(s)     
+LoopBack1008                      unassigned           up         up(s)     
+LoopBack1022                      unassigned           up         up(s)     
+LoopBack1234                      unassigned           up         up(s)     
+NULL0                             unassigned           up         up(s)     
+Virtual-Template0                 10.120.31.1/32       up         up(s)     
+Virtual-if0                       unassigned           up         up(s)     
+Vlanif300                         169.254.254.2/30     *down      down      
+Vlanif301                         169.254.254.6/30     *down      down      
+Vlanif4047                        169.254.254.33/29    up         up        
+Vlanif4048                        169.254.254.18/29    up         up        
+Vlanif4049                        169.254.254.26/29    up         up        
+Vlanif4050                        169.254.254.41/29    up         up        
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+2026-01-08 12:55:16.684 +02:00
+Route Flags: R - relay, D - download to fib
+------------------------------------------------------------------------------
+Routing Tables: Public
+         Destinations : 30485    Routes : 62679    
+
+Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+
+      10.1.24.0/24  Static  60   0          RD   10.120.16.158   GigabitEthernet3/0/8.1300
+     10.1.24.21/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.23/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.40/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.41/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.42/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.43/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.44/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.45/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.46/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.47/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.50/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.51/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.52/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.53/32  O_ASE   150  1           D   10.120.16.158   GigabitEthernet3/0/8.1300
+     10.1.24.54/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.55/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.56/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.57/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.58/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.61/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.62/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.63/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.64/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.65/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.66/32  O_ASE   150  1           D   10.120.16.158   GigabitEthernet3/0/8.1300
+     10.1.24.80/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.88/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.89/32  OSPF    10   1001        D   10.120.16.158   GigabitEthernet3/0/8.1300
+     10.1.24.91/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.92/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+     10.1.24.93/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.100/30  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.104/30  OSPF    10   11          D   10.193.16.34    GigabitEthernet3/0/8.4008
+    10.1.24.108/30  OSPF    10   11          D   10.120.16.25    GigabitEthernet3/0/8.200
+    10.1.24.112/30  OSPF    10   11          D   10.120.16.21    GigabitEthernet3/0/8.4007
+    10.1.24.116/30  O_ASE   150  1           D   10.193.16.34    GigabitEthernet3/0/8.4008
+    10.1.24.128/30  O_ASE   150  1           D   10.193.16.34    GigabitEthernet3/0/8.4008
+    10.1.24.132/30  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.136/30  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.144/30  OSPF    10   11          D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.148/30  OSPF    10   11          D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.152/30  OSPF    10   11          D   10.120.16.146   GigabitEthernet3/0/8.1400
+    10.1.24.156/30  OSPF    10   11          D   10.120.17.2     GigabitEthernet3/0/8.1800
+    10.1.24.160/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.161/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.162/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.163/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.164/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.165/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.167/32  OSPF    10   2           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.170/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.171/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.172/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.173/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.176/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.177/32  O_ASE   150  1           D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.178/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.180/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.181/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.183/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.184/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.185/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.186/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.187/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.201/32  OSPF    10   1011        D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.202/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.203/32  OSPF    10   1           D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.204/32  OSPF    10   11          D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.205/32  Static  60   0          RD   10.195.2.18     GigabitEthernet1/0/9.61
+    10.1.24.206/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.208/32  OSPF    10   103         D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.209/32  Direct  0    0           D   127.0.0.1       LoopBack1
+    10.1.24.210/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.211/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.212/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.213/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.214/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.215/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.216/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.217/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.218/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.219/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.220/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.221/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.222/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.223/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.224/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.225/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.226/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.230/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.232/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.233/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.234/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.235/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.236/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.237/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.238/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.239/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.240/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.241/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.242/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.243/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.244/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.245/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.246/32  O_ASE   150  1           D   10.120.16.9     GigabitEthernet3/0/8.3661
+    10.1.24.248/29  OSPF    10   2           D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.252/32  OSPF    10   2           D   10.120.16.158   GigabitEthernet3/0/8.1300
+    10.1.24.254/32  Static  60   0          RD   10.120.16.158   GigabitEthernet3/0/8.1300

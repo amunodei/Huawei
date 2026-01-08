@@ -1,0 +1,185 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+2026-01-08 12:57:43.622 +02:00
+*down: administratively down
+^down: standby
+(l): loopback
+(s): spoofing
+(d): Dampening Suppressed
+(E): E-Trunk down
+The number of interface that is UP in Physical is 32
+The number of interface that is DOWN in Physical is 27
+The number of interface that is UP in Protocol is 20
+The number of interface that is DOWN in Protocol is 39
+
+Interface                         IP Address/Mask      Physical   Protocol  
+Eth-Trunk10                       10.36.252.21/30      up         up        
+Eth-Trunk50                       unassigned           up         down      
+Eth-Trunk50.222                   10.0.30.161/29       up         up        
+GigabitEthernet0/0/0              192.168.0.1/24       down       down      
+GigabitEthernet0/0/0.1899         unassigned           *down      down      
+GigabitEthernet1/0/0              unassigned           down       down      
+GigabitEthernet1/0/0.100          unassigned           down       down      
+GigabitEthernet1/0/4              unassigned           *down      down      
+GigabitEthernet1/0/5              unassigned           *down      down      
+GigabitEthernet1/0/6              unassigned           *down      down      
+GigabitEthernet1/0/7              unassigned           *down      down      
+GigabitEthernet1/0/8              10.0.30.98/30        *down      down      
+GigabitEthernet1/0/9              10.0.30.129/30       up         up        
+GigabitEthernet1/0/10             unassigned           *down      down      
+GigabitEthernet1/0/11             unassigned           up         down      
+GigabitEthernet1/0/11.33          10.0.30.21/30        up         up        
+GigabitEthernet1/0/11.36          unassigned           up         down      
+GigabitEthernet1/0/11.43          10.0.30.61/30        up         up        
+GigabitEthernet1/0/11.44          10.0.30.65/30        up         up        
+GigabitEthernet1/0/11.100         unassigned           up         down      
+GigabitEthernet1/0/11.300         unassigned           up         down      
+GigabitEthernet1/0/11.301         unassigned           up         down      
+GigabitEthernet1/0/11.1899        10.0.30.1/30         up         up        
+GigabitEthernet1/0/11.4013        unassigned           up         down      
+GigabitEthernet2/0/0              unassigned           down       down      
+GigabitEthernet2/0/1              unassigned           down       down      
+GigabitEthernet2/0/2              unassigned           down       down      
+GigabitEthernet2/0/3              unassigned           down       down      
+GigabitEthernet2/0/4              unassigned           down       down      
+GigabitEthernet2/0/5              unassigned           down       down      
+GigabitEthernet2/0/6              unassigned           down       down      
+GigabitEthernet2/0/7              unassigned           down       down      
+GigabitEthernet2/0/8(10G)         unassigned           up         down      
+GigabitEthernet2/0/8.10           unassigned           up         down      
+GigabitEthernet2/0/8.11           unassigned           up         down      
+GigabitEthernet2/0/8.550          10.185.20.253/24     up         up        
+GigabitEthernet2/0/8.551          10.0.24.253/24       up         up        
+GigabitEthernet2/0/8.578          10.185.21.252/24     up         up        
+GigabitEthernet2/0/8.598          10.185.0.54/29       *down      down      
+GigabitEthernet2/0/8.1992         10.120.17.62/30      up         up        
+GigabitEthernet2/0/8.1993         10.120.17.73/30      up         up        
+GigabitEthernet2/0/8.1996         10.0.30.89/30        up         up        
+GigabitEthernet2/0/8.2892         10.10.1.34/28        up         up        
+GigabitEthernet2/0/8.4048         unassigned           up         down      
+GigabitEthernet2/0/8.4049         unassigned           up         down      
+GigabitEthernet3/0/0              unassigned           down       down      
+GigabitEthernet3/0/1              unassigned           *down      down      
+GigabitEthernet3/0/2              unassigned           down       down      
+GigabitEthernet3/0/3              unassigned           down       down      
+GigabitEthernet3/0/4              unassigned           down       down      
+GigabitEthernet3/0/5              unassigned           down       down      
+GigabitEthernet3/0/6              unassigned           down       down      
+GigabitEthernet3/0/7              unassigned           down       down      
+GigabitEthernet3/0/9(10G)         10.0.30.5/30         up         up        
+LoopBack0                         10.1.26.209/32       up         up(s)     
+LoopBack1                         41.73.61.34/32       up         up(s)     
+LoopBack5                         41.73.61.254/32      up         up(s)     
+NULL0                             unassigned           up         up(s)     
+Virtual-if0                       unassigned           up         up(s)     
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+2026-01-08 12:57:44.472 +02:00
+Route Flags: R - relay, D - download to fib
+------------------------------------------------------------------------------
+Routing Tables: Public
+         Destinations : 29904    Routes : 33776    
+
+Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+
+     10.1.24.21/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.23/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.40/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.41/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.42/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.43/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.44/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.45/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.46/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.47/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.50/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.51/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.52/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.53/32  O_ASE   150  2           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.54/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.55/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.56/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.57/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.58/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.61/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.62/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.63/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.64/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.65/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.66/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.80/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.88/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.89/32  OSPF    10   1102        D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.91/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.92/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+     10.1.24.93/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.100/30  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.104/30  O_ASE   150  1           D   10.120.17.74    GigabitEthernet2/0/8.1993
+    10.1.24.112/30  O_ASE   150  1           D   10.120.17.74    GigabitEthernet2/0/8.1993
+    10.1.24.116/30  O_ASE   150  1           D   10.120.17.74    GigabitEthernet2/0/8.1993
+    10.1.24.132/30  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.136/30  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.144/30  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.148/30  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.152/30  O_ASE   150  1           D   10.0.30.66      GigabitEthernet1/0/11.44
+    10.1.24.160/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.161/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.162/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.163/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.164/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.165/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.170/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.171/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.172/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.173/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.176/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.177/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.178/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.180/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.181/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.183/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.184/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.185/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.186/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.187/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.201/32  OSPF    10   1112        D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.202/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.203/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.204/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.206/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.208/32  OSPF    10   203         D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.209/32  OSPF    10   103         D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.210/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.211/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.212/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.213/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.214/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.215/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.216/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.217/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.218/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.219/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.220/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.221/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.222/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.223/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.224/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.225/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.226/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.230/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.232/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.233/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.234/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.235/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.236/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.237/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.238/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.239/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.240/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.241/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.242/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.243/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.244/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.245/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.246/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.248/29  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.252/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33
+    10.1.24.254/32  O_ASE   150  1           D   10.0.30.22      GigabitEthernet1/0/11.33

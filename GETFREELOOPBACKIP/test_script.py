@@ -9,9 +9,9 @@ with open( 'devices.txt' ) as network_devices:
                  'password':'Murambinda12#$'}
 
        myssh=ConnectHandler(**device)
-       print('8'*200)
+       print('X'*100)
        print(f'connecting to {IP} ')
-       backupfilename = "Looback_ips_inuse.txt"
+       backupfilename = "Looback_ips_inuse_" + time.strftime("%Y%m%d_%H%M%S") + ".txt"
        backupfile = open(backupfilename, "a")
        myssh.send_command("screen-length 0 temporary")
        device_name = myssh.send_command("disp sysname")
@@ -30,7 +30,7 @@ with open( 'devices.txt' ) as network_devices:
         backupfile.write("\n")
         backupfile.write(output3)
        elif version_output == "nfo" :
-        output4 = myssh.send_command_timing("display ip routing-table all-routes")
+        output4 = myssh.send_command_timing("display ip routing-table all-routes | i 10.1.24")
         print(output4)
         backupfile.write("X"*200)
         backupfile.write("\n")
