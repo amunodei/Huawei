@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>CSR Initial Script Generator</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --panel2: #273449;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-2: #60a5fa;
+    --ok: #22c55e;
+    --err: #ef4444;
+    --warn: #f59e0b;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, Segoe UI, Roboto, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+  }
+  header {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header h1 { font-size: 18px; margin: 0; font-weight: 600; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  main {
+    max-width: 1200px; margin: 0 auto; padding: 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .card h2 { font-size: 14px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+  label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  input[type=text], input[type=number], textarea, select {
+    width: 100%;
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+  }
+  textarea { resize: vertical; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .field { margin-bottom: 10px; }
+  .hint { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .file-pick { display: flex; align-items: center; gap: 10px; }
+  .file-pick input[type=file] { flex: 1; }
+  .btn {
+    background: var(--accent);
+    color: white;
+    border: 0;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .btn:hover { background: var(--accent-2); }
+  .btn.secondary { background: var(--panel2); color: var(--text); border: 1px solid var(--border); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .full { grid-column: 1 / -1; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: ui-monospace, Menlo, monospace; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+  th { color: var(--muted); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+  tr.ok td.status { color: var(--ok); }
+  tr.bad td.status { color: var(--err); }
+  .badges { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .badge { background: var(--panel2); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+  .badge.ok { border-color: var(--ok); color: var(--ok); }
+  .badge.err { border-color: var(--err); color: var(--err); }
+  .warnings { color: var(--warn); font-size: 12px; margin-top: 8px; }
+  .error { color: var(--err); font-size: 13px; margin-top: 8px; }
+  .muted { color: var(--muted); }
+  .scroll { max-height: 360px; overflow-y: auto; }
+  code { background: var(--panel2); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>CSR Initial Script Generator <span style="font-size:11px;color:#22c55e;font-weight:normal;">v2026-05-27c</span></h1>
+    <div class="sub">Generate batch scripts from a template + IP planning workbook</div>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>1. Script template</h2>
+    <div class="hint">Placeholders: <code>{{csr_id}}</code>, <code>{{esn}}</code>, <code>{{csr_ip}}</code>, <code>{{csr_cidr}}</code>, <code>{{mask}}</code>, <code>{{lo0_ip}}</code>, <code>{{lo0_cidr}}</code>, <code>{{lo0_mask}}</code>, <code>{{lo1_ip}}</code>, <code>{{lo1_cidr}}</code>, <code>{{lo1_mask}}</code>, <code>{{net}}</code> (ISIS network-entity from Lo0_IP)</div>
+    <div class="file-pick" style="margin:10px 0;">
+      <input type="file" id="templateFile" accept=".txt,.cfg,.conf" />
+      <button class="btn secondary" type="button" id="loadTemplate">Load from file</button>
+      <button class="btn secondary" type="button" id="resetTemplate">Reset default</button>
+    </div>
+    <textarea id="template" rows="18">{{ default_template }}</textarea>
+  </section>
+
+  <section class="card">
+    <h2>2. ESN list</h2>
+    <div class="hint">Paste ESNs, one per line (comma/space separated also works).</div>
+    <textarea id="esns" rows="10" placeholder="2102355NEN10S4100026&#10;2102355NEN10S4100048"></textarea>
+
+    <h2 style="margin-top:18px;">3. Excel workbook</h2>
+    <div class="file-pick">
+      <input type="file" id="excel" accept=".xlsx,.xlsm" />
+    </div>
+    <div class="hint">The IP planning workbook containing the National CSR List &amp; National PTP tabs.</div>
+
+    <h2 style="margin-top:18px;">4. Sheet / column overrides</h2>
+    <div class="row">
+      <div>
+        <label>CSR list sheet</label>
+        <input type="text" id="csr_sheet" value="{{ defaults.csr_sheet }}" />
+      </div>
+      <div>
+        <label>PTP sheet</label>
+        <input type="text" id="ptp_sheet" value="{{ defaults.ptp_sheet }}" />
+      </div>
+    </div>
+    <div class="row3">
+      <div>
+        <label>CSR_ID column</label>
+        <input type="text" id="csr_id_col" value="{{ defaults.csr_id_col }}" />
+      </div>
+      <div>
+        <label>ESN column</label>
+        <input type="text" id="esn_col" value="{{ defaults.esn_col }}" />
+      </div>
+      <div>
+        <label>Header row</label>
+        <input type="number" id="header_row" value="{{ defaults.header_row }}" min="1" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Lo0_IP column</label>
+        <input type="text" id="lo0_ip_col" value="{{ defaults.lo0_ip_col }}" />
+      </div>
+      <div>
+        <label>Lo0_CIDR column</label>
+        <input type="text" id="lo0_cidr_col" value="{{ defaults.lo0_cidr_col }}" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Lo1_IP column</label>
+        <input type="text" id="lo1_ip_col" value="{{ defaults.lo1_ip_col }}" />
+      </div>
+      <div>
+        <label>Lo1_CIDR column</label>
+        <input type="text" id="lo1_cidr_col" value="{{ defaults.lo1_cidr_col }}" />
+      </div>
+    </div>
+    <div class="row3">
+      <div>
+        <label>PTP CSR_ID column</label>
+        <input type="text" id="ptp_csr_id_col" value="{{ defaults.ptp_csr_id_col }}" />
+      </div>
+      <div>
+        <label>PTP CSR_IP column</label>
+        <input type="text" id="ptp_ip_col" value="{{ defaults.ptp_ip_col }}" />
+      </div>
+      <div>
+        <label>PTP CSR_CIDR column</label>
+        <input type="text" id="ptp_cidr_col" value="{{ defaults.ptp_cidr_col }}" />
+      </div>
+    </div>
+
+    <h2 style="margin-top:18px;">5. Batch</h2>
+    <div class="row">
+      <div>
+        <label>Batch name</label>
+        <input type="text" id="batch_name" value="Batch-1" />
+      </div>
+      <div>
+        <label>Line endings</label>
+        <select id="crlf">
+          <option value="1" selected>CRLF (Windows / device default)</option>
+          <option value="0">LF (Unix)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn secondary" id="previewBtn" type="button">Preview mappings</button>
+      <button class="btn" id="generateBtn" type="button">Generate &amp; download zip</button>
+    </div>
+    <div id="error" class="error"></div>
+  </section>
+
+  <section class="card full" id="previewCard" style="display:none;">
+    <h2>Mapping preview</h2>
+    <div id="badges" class="badges"></div>
+    <div class="scroll">
+      <table id="previewTable">
+        <thead>
+          <tr>
+            <th>#</th><th>ESN</th><th>CSR_ID</th>
+            <th>CSR_IP</th><th>Mask</th>
+            <th>Lo0_IP</th><th>Lo0_Mask</th>
+            <th>Lo1_IP</th><th>Lo1_Mask</th>
+            <th>NET</th>
+            <th class="status">Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="warnings" class="warnings"></div>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+$("loadTemplate").addEventListener("click", () => $("templateFile").click());
+$("templateFile").addEventListener("change", async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  $("template").value = await f.text();
+});
+$("resetTemplate").addEventListener("click", async () => {
+  if (!confirm("Reset the template to default?")) return;
+  const res = await fetch("/");
+  const html = await res.text();
+  const m = html.match(/<textarea id="template"[^>]*>([\s\S]*?)<\/textarea>/);
+  if (m) $("template").value = m[1].replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"');
+});
+
+function collectForm() {
+  const fd = new FormData();
+  fd.append("template", $("template").value);
+  fd.append("esns", $("esns").value);
+  fd.append("batch_name", $("batch_name").value);
+  fd.append("crlf", $("crlf").value);
+  ["csr_sheet","ptp_sheet","csr_id_col","esn_col","header_row",
+   "lo0_ip_col","lo0_cidr_col","lo1_ip_col","lo1_cidr_col",
+   "ptp_csr_id_col","ptp_ip_col","ptp_cidr_col"].forEach(k => {
+    fd.append(k, $(k).value);
+  });
+  const excel = $("excel").files[0];
+  if (excel) fd.append("excel", excel);
+  return fd;
+}
+
+function showError(msg) {
+  const el = $("error");
+  el.textContent = msg || "";
+  if (msg) {
+    el.scrollIntoView({behavior: "smooth", block: "center"});
+    alert(msg);
+    console.error("[CSR script app]", msg);
+  }
+}
+
+function validateForm() {
+  if (!$("excel").files[0]) {
+    showError("Please upload the Excel workbook (section 3). The file picker resets after a page reload — you'll need to choose the file again.");
+    $("excel").focus();
+    return false;
+  }
+  if (!$("esns").value.trim()) { showError("Please paste at least one ESN (section 2)."); return false; }
+  if (!$("template").value.trim()) { showError("Template is empty (section 1)."); return false; }
+  return true;
+}
+
+async function doPreview() {
+  showError("");
+  if (!validateForm()) return;
+  $("previewBtn").disabled = true;
+  try {
+    console.log("[CSR script app] POST /preview");
+    const res = await fetch("/preview", { method: "POST", body: collectForm() });
+    const data = await res.json();
+    console.log("[CSR script app] /preview ->", res.status, data);
+    if (!res.ok) { showError(data.error || "Preview failed."); return; }
+    renderPreview(data);
+  } catch (e) {
+    showError("Preview request failed: " + String(e));
+  } finally {
+    $("previewBtn").disabled = false;
+  }
+}
+
+function renderPreview(data) {
+  $("previewCard").style.display = "";
+  const tbody = $("previewTable").querySelector("tbody");
+  tbody.innerHTML = "";
+  data.rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    tr.className = r.ok ? "ok" : "bad";
+    tr.innerHTML = `<td>${i+1}</td><td>${r.esn}</td><td>${r.csr_id || ""}</td>
+      <td>${r.csr_ip || ""}</td><td>${r.mask || ""}</td>
+      <td>${r.lo0_ip || ""}</td><td>${r.lo0_mask || ""}</td>
+      <td>${r.lo1_ip || ""}</td><td>${r.lo1_mask || ""}</td>
+      <td>${r.net || ""}</td>
+      <td class="status">${r.status}</td>`;
+    tbody.appendChild(tr);
+  });
+  $("badges").innerHTML = `
+    <span class="badge">Total: ${data.summary.total}</span>
+    <span class="badge ok">OK: ${data.summary.ok}</span>
+    <span class="badge err">Failed: ${data.summary.failed}</span>
+  `;
+  $("warnings").innerHTML = (data.warnings || []).map(w => `&#9888; ${w}`).join("<br>");
+}
+
+async function doGenerate() {
+  showError("");
+  if (!validateForm()) return;
+  $("generateBtn").disabled = true;
+  $("generateBtn").textContent = "Generating...";
+  try {
+    console.log("[CSR script app] POST /generate");
+    const res = await fetch("/generate", { method: "POST", body: collectForm() });
+    console.log("[CSR script app] /generate ->", res.status, res.headers.get("Content-Type"));
+    if (!res.ok) {
+      const text = await res.text();
+      showError("Generate failed (" + res.status + "): " + (text || "no message"));
+      return;
+    }
+    const cd = res.headers.get("Content-Disposition") || "";
+    const m = cd.match(/filename="?([^"]+)"?/);
+    const name = m ? m[1] : "scripts.zip";
+    const blob = await res.blob();
+    const gen = res.headers.get("X-Generated") || "?";
+    const failed = parseInt(res.headers.get("X-Failed") || "0", 10);
+    const missingHdr = res.headers.get("X-Missing") || "";
+    console.log("[CSR script app] downloading", name, blob.size, "bytes; generated=", gen, "failed=", failed);
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    if (failed > 0) {
+      alert("Generated " + gen + " script(s).\n\n" + failed + " ESN(s) could NOT be resolved:\n" + missingHdr +
+            "\n\n(see _summary.tsv inside the zip for the full list)");
+    }
+  } catch (e) {
+    showError("Generate request failed: " + String(e));
+  } finally {
+    $("generateBtn").disabled = false;
+    $("generateBtn").textContent = "Generate & download zip";
+  }
+}
+
+$("previewBtn").addEventListener("click", doPreview);
+$("generateBtn").addEventListener("click", doGenerate);
+</script>
+</body>
+</html>
+    console.log("[CSR script app] /generate ->", res.status, 

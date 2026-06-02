@@ -1,0 +1,283 @@
+sys
+display esn
+disp license resource usage
+sysname {{csr_id}}
+#
+license
+active port-basic slot 2 port 10-11
+#
+interface GigabitEthernet0/2/10
+port-mode 10GE
+Y
+#
+interface GigabitEthernet0/2/11
+port-mode 10GE
+Y
+#
+isis 10
+is-level level-2
+cost-style wide
+timer lsp-generation 1 50 50 level-2
+bfd all-interfaces enable
+bfd all-interfaces min-tx-interval 30 min-rx-interval 30
+network-entity {{net}}
+timer spf 1 50 50
+set-overload on-startup
+#
+mpls
+#
+mpls ldp
+#
+interface GigabitEthernet0/2/8
+carrier down-hold-time 200
+mtu 9216
+description CSR uplink
+undo shutdown
+set flow-stat interval 10
+trap-threshold input-rate 80 resume-rate 80
+trap-threshold output-rate 80 resume-rate 80
+ip address {{csr_ip}} {{mask}}
+trust upstream default
+isis enable 10
+isis circuit-type p2p
+isis circuit-level level-2
+isis ldp-sync
+mpls
+mpls ldp
+dcn
+statistic enable
+#
+ip vpn-instance IPRAN-MGMT
+ipv4-family
+#
+ip vpn-instance Media
+ipv4-family
+route-distinguisher {{lo1_ip}}:5002
+tnl-policy IPRAN
+apply-label per-instance
+vpn-target 327685:3002 export-extcommunity
+vpn-target 65100:5002 export-extcommunity
+vpn-target 327685:3002 import-extcommunity
+vpn-target 37105:30012 import-extcommunity
+vpn-target 65100:5002 import-extcommunity
+#
+ip vpn-instance OAM
+ipv4-family
+route-distinguisher {{lo1_ip}}:5004
+tnl-policy IPRAN
+apply-label per-instance
+vpn-target 327685:1000 export-extcommunity
+vpn-target 327685:1005 export-extcommunity
+vpn-target 65100:5004 export-extcommunity
+vpn-target 327685:1000 import-extcommunity
+vpn-target 327685:1003 import-extcommunity
+vpn-target 327685:3006 import-extcommunity
+vpn-target 37105:30012 import-extcommunity
+vpn-target 327685:1005 import-extcommunity
+vpn-target 65100:5004 import-extcommunity
+#
+ip vpn-instance Sec1
+ipv4-family
+route-distinguisher {{lo1_ip}}:5008
+apply-label per-instance
+vpn-target 327685:5008 export-extcommunity
+vpn-target 327685:5008 import-extcommunity
+#
+ip vpn-instance Signalling
+ipv4-family
+route-distinguisher {{lo1_ip}}:5003
+tnl-policy IPRAN
+apply-label per-instance
+vpn-target 327685:3001 export-extcommunity
+vpn-target 65100:5003 export-extcommunity
+vpn-target 327685:3001 import-extcommunity
+vpn-target 37105:30012 import-extcommunity
+vpn-target 65100:5003 import-extcommunity
+#
+hwtacacs-server template rain
+hwtacacs-server authentication 10.0.6.227 vpn-instance OAM
+hwtacacs-server authentication 10.16.149.149 vpn-instance OAM secondary
+hwtacacs-server authentication 10.0.6.228 vpn-instance OAM secondary
+hwtacacs-server authentication 10.185.16.11 vpn-instance OAM secondary
+hwtacacs-server authorization 10.0.6.227 vpn-instance OAM
+hwtacacs-server authorization 10.16.149.149 vpn-instance OAM secondary
+hwtacacs-server authorization 10.0.6.228 vpn-instance OAM secondary
+hwtacacs-server authorization 10.185.16.11 vpn-instance OAM secondary
+hwtacacs-server accounting 10.0.6.227 vpn-instance OAM
+hwtacacs-server accounting 10.16.149.149 vpn-instance OAM secondary
+hwtacacs-server accounting 10.0.6.228 vpn-instance OAM secondary
+hwtacacs-server accounting 10.185.16.11 vpn-instance OAM secondary
+hwtacacs-server source-ip {{lo1_ip}}
+hwtacacs-server shared-key cipher %^%#1(4H@>GxeP;V*nH-,_SCch,"O@Yq1=u)-pX,@MN@%^%#
+hwtacacs-server timer response-timeout 2
+hwtacacs-server user-name original
+#
+mpls lsr-id {{lo0_ip}}
+#
+mpls
+#
+mpls ldp
+ipv4-family
+#
+acl number 3334
+description For_SNMP-protection
+rule 5 permit udp vpn-instance OAM source 10.193.0.0 0.0.255.255
+rule 5 description Systems Subnets
+rule 10 permit udp vpn-instance OAM source 10.7.0.0 0.0.1.255
+rule 10 description New_Systems_IPs
+rule 15 permit udp vpn-instance OAM source 10.185.0.0 0.0.255.255
+rule 15 description Systems Subnets
+rule 20 permit udp vpn-instance OAM source 10.1.24.0 0.0.0.255
+rule 20 description IP Core TRI mgmt network
+rule 25 permit udp vpn-instance OAM source 10.1.26.0 0.0.0.255
+rule 25 description IP Core VFS mgmt network
+rule 30 permit udp vpn-instance OAM source 10.120.0.0 0.0.255.255
+rule 30 description IP Core
+rule 35 permit udp vpn-instance OAM source 10.195.0.0 0.0.255.255
+rule 35 description IP Core Subnets
+rule 40 permit udp vpn-instance __dcn_vpn__ source 128.0.0.0 0.255.255.255
+rule 40 description Huawei DCN
+rule 45 permit udp vpn-instance OAM source 10.4.4.0 0.0.3.255
+rule 45 description TRI OpenVPN remote access pool (10.193.64.1)
+rule 50 permit udp vpn-instance OAM source 10.0.24.0 0.0.3.255
+rule 50 description Remote Access VPN- CPT
+rule 60 permit udp vpn-instance OAM source 10.0.6.0 0.0.0.255
+rule 60 description Ocular IP
+rule 65 permit udp vpn-instance OAM source 10.1.6.0 0.0.0.255
+rule 65 description Ocular IP
+rule 70 permit udp vpn-instance OAM source 10.2.0.0 0.0.0.255
+rule 70 description Ocular IP
+rule 75 permit udp vpn-instance OAM source 10.2.6.0 0.0.0.255
+rule 75 description Ocular IP
+rule 80 permit udp vpn-instance OAM source 10.2.7.0 0.0.0.255
+rule 80 description Ocular IP
+rule 1000 deny ip
+rule 1000 description Deny All (Hit Catcher)
+#
+acl number 3336
+description For_VTY-protection
+rule 5 permit ip vpn-instance OAM source 10.4.0.0 0.0.255.255
+rule 5 description OpenVPN
+rule 10 permit ip vpn-instance OAM source 10.193.0.0 0.0.255.255
+rule 10 description Systems Subnets
+rule 15 permit ip vpn-instance OAM source 10.1.24.0 0.0.0.255
+rule 15 description IP Core TRI mgmt network
+rule 20 permit ip vpn-instance OAM source 10.120.0.0 0.0.255.255
+rule 20 description IP Core
+rule 25 permit ip vpn-instance OAM source 10.195.0.0 0.0.255.255
+rule 25 description IP Core Subnet
+rule 30 permit ip vpn-instance __dcn_vpn__ source 128.0.0.0 0.255.255.255
+rule 30 description Huawei DCN
+rule 35 permit ip vpn-instance __LOCAL_OAM_VPN__ source 192.168.0.0 0.0.0.255
+rule 35 description Local Eth-OAM Login
+rule 40 permit ip vpn-instance OAM source 10.0.24.0 0.0.3.255
+rule 40 description Remote Access VPN- CPT
+rule 45 permit ip vpn-instance OAM source 10.185.0.0 0.0.255.255
+rule 45 description Systems Subnets
+rule 50 permit ip source 10.1.112.0 0.0.15.255
+rule 50 description CIDR[/20]-CSR_National_PTP_[Global]
+rule 55 permit ip source 10.1.104.0 0.0.3.255
+rule 55 description CIDR[/22]-CSR_National_LoopBack_0_[Global]
+rule 60 permit ip vpn-instance OAM source 10.1.108.0 0.0.3.255
+rule 60 description CIDR[/22]-CSR_National_LoopBack_1_[OAM]
+rule 65 permit ip source 10.179.32.0 0.0.3.255
+rule 65 description CIDR[/22]-WC_CSR_PTP_[Global]
+rule 70 permit ip vpn-instance OAM source 10.179.36.0 0.0.0.255
+rule 70 description CIDR[/24]-WC_CSR_LoopBack1_oam-ipcore
+rule 75 permit ip source 10.179.37.0 0.0.0.255
+rule 75 description CIDR[/24]-WC_CSR_LoopBack0_Global
+rule 80 permit ip vpn-instance OAM source 10.177.52.0 0.0.1.255
+rule 80 description CIDR[/25]-JHB_CSR_LoopBack1_oam-ipcore_L3VPN
+rule 85 permit ip source 10.177.48.0 0.0.3.255
+rule 85 description PTP-Transmission-ATN910C
+rule 90 permit ip source 10.177.52.0 0.0.1.255
+rule 90 description CIDR[/23]-JHB_CSR_LoopBack
+rule 100 permit ip vpn-instance IPRAN-MGMT source 192.168.80.0 0.0.0.255
+rule 100 description CSR Backup Local Management
+rule 282 permit ip vpn-instance OAM source 10.4.8.0 0.0.3.255
+rule 283 permit ip vpn-instance OAM source 10.24.0.0 0.0.255.25
+rule 284 permit ip vpn-instance OAM source 10.7.0.64 0
+rule 285 permit ip vpn-instance OAM source 10.7.1.89 0
+rule 286 permit ip vpn-instance OAM source 10.4.4.0 0.0.3.255
+rule 288 permit ip vpn-instance OAM source 10.0.32.0 0.0.3.255
+rule 1000 deny ip
+rule 1000 description Deny All (Hit Catcher)
+#
+aaa
+user-password password-force-change disable
+local-user ipcore.local password irreversible-cipher shYjdnsmnsMnd@2026
+local-user ipcore.local service-type ftp ssh
+local-user ipcore.local level 3
+local-user ipcore.local state block fail-times 3 interval 5
+local-user ipcore.local ftp-directory cfcard:/
+local-user ipcore.local user-group manage-ug
+local-user huawei.local password irreversible-cipher S$VenNDsHUAd@123Wei
+local-user huawei.local service-type none
+local-user huawei.local state block fail-times 3 interval 5
+authentication-scheme default0
+authentication-scheme default1
+authentication-scheme default
+authentication-mode local radius
+authentication-scheme rain
+authentication-mode hwtacacs local
+authorization-scheme default
+authorization-scheme rain
+authorization-mode hwtacacs local
+accounting-scheme default0
+accounting-scheme default1
+accounting-scheme rain
+accounting-mode hwtacacs
+domain default0
+domain default1
+domain default_admin
+authentication-scheme rain
+authorization-scheme rain
+hwtacacs-server rain
+#
+interface LoopBack0
+description LoopBack0|global|BGP|IS-IS|MPLS|
+ip address {{lo0_ip}} {{lo0_mask}}
+isis enable 10
+#
+interface LoopBack1
+description LoopBack1|OAM|MGNT|
+ip binding vpn-instance OAM
+ip address {{lo1_ip}} {{lo1_mask}}
+#
+bgp 65100
+router-id {{lo0_ip}}
+private-4-byte-as enable
+ipv4-family unicast
+undo synchronization
+undo peer 10.1.64.6 enable
+ipv4-family vpnv4
+policy vpn-target
+ipv4-family vpn-instance Media
+import-route direct
+ipv4-family vpn-instance OAM
+import-route direct
+ipv4-family vpn-instance Sec1
+import-route direct
+import-route static
+ipv4-family vpn-instance Signalling
+import-route direct
+#
+snmp-agent
+snmp-agent acl 3334
+snmp-agent community read cipher %^%#G8Xw<Q\`ER#>}w!Cbec6jc^WF5BQZN_gulB@"7f,]]NP%m!nD2tz%zQU%dj*H<"^Oh(hrQ9h;_A>2!Z$%^%# alias __CommunityAliasName_01_17441
+snmp-agent community write cipher %^%#@o4Q3sd00)(Vo6)TEt*)lZ&W!O]8!>us!L,OTzP+b#hDYaoNU.6Y,bEoDwL4hn`uFpOob0x\,*>leg<S%^%# alias __CommunityAliasName_02_62254
+#
+snmp-agent sys-info contact Rain-TX@rain.co.za
+snmp-agent sys-info version v2c v3
+snmp-agent target-host host-name __targetHost_1_NCE_JHB inform address udp-domain 10.193.20.1 vpn-instance OAM params securityname cipher %^%#d!Aa5N,8P-@EQ'>w=&//Yg*\/.aGsR{vqT(tBvb4%^%# v2c
+snmp-agent target-host host-name __targetHost_2_30339 inform address udp-domain 10.1.24.254 vpn-instance OAM params securityname cipher %^%#d!Aa5N,8P-@EQ'>w=&//Yg*\/.aGsR{vqT(tBvb4%^%# v2c
+snmp-agent target-host host-name __targetHost_3_NCE_CPT inform address udp-domain 10.185.0.17 vpn-instance OAM params securityname cipher %^%#d!Aa5N,8P-@EQ'>w=&//Yg*\/.aGsR{vqT(tBvb4%^%# v2c
+snmp-agent target-host host-name __targetHost_4_NCE_IP_CPT inform address udp-domain 10.185.1.40 vpn-instance OAM params securityname cipher %^%#d!Aa5N,8P-@EQ'>w=&//Yg*\/.aGsR{vqT(tBvb4%^%# v2c
+#
+snmp-agent trap source LoopBack1
+snmp-agent packet max-size 1500
+#
+snmp-agent protocol source-status all-interface
+undo snmp-agent protocol source-status ipv6 all-interface
+#
+snmp-
